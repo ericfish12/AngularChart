@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In Page</title>
-    <link rel="stylesheet" href= "style.css"/>
-   <!-- <style> 
-h1{
-    color:red;
-}
-</style> -->
-
-    <script src = 'index.js' defer></script>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
     <h2>Sign Up</h2>
 
-<form class = 'flex_container'>
-   
-<input type = 'name' placeholder="First Name"/>
-<input  type = 'name' placeholder="Last Name"/>
-<input type = 'number' placeholder="Mobile No." />
-<input  type='email' placeholder="Email Address"/>
-<input  type='password' placeholder="Password"/>
-<input  type= 'password' placeholder="Confirm Password"/>
-<div class = checkbox_container>
-<input type = 'checkbox'/>
-<div class = 'checkbox_agree'>I Agree</div>
-<div class = 'checkbox_agreement'>By clicking <div class = 'checkbox_Register'>Register</div>, you agree to the 
-    
-  <a href = ''>  Terms and Conditions</a> set out by this site, including our Cookie Use.</div>
-</div>
-<input type ='submit' value = 'Register' />
-<input id = 'hi' type ='submit' value = 'Sign In' />
-</form>
+    <form class="flex_container">
+      <input type="name" placeholder="First Name" />
+      <input type="name" placeholder="Last Name" />
+      <input type="number" placeholder="Mobile No." />
+      <input type="email" placeholder="Email Address" />
+      <input type="password" placeholder="Password" />
+      <input type="password" placeholder="Confirm Password" />
+      <div class="checkbox_container">
+        <label class="checkbox_agree"> <input type="checkbox" />I Agree</label>
 
+        <p class="checkbox_agreement">
+          By clicking
+          <span class="checkbox_Register">Register</span>
+          , you agree to the
 
-
-
-
-
-
-</body>
+          <a href=""> Terms and Conditions</a> set out by this site, including
+          our Cookie Use.
+        </p>
+      </div>
+      <input type="submit" value="Register" />
+      <input id="hi" type="submit" value="Sign In" />
+    </form>
+  </body>
 </html>
