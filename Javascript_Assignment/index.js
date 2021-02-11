@@ -241,6 +241,34 @@ console.log('20: ',randomString(22))
 
 
 
+/*
+[1]--[1]          [1,2]--[1]+  [1,+2]+[2]           [1,2,3]---  [1] [2] [1,2] +   [1,+3] [2,+3] [1,2,+3]+[3]     
+[1,2,3.....n]---function([1,2,3...n-1])  concat  (every element in function([1,2,3...n-1]) +[n]) concat [n]
+*/
+const allPossibleSubset=(array,target=[])=>{
+if(array.length==1){
+target.push([array[0]])
+ return target
+}
+else{
+  
+let temp = array.pop()
+let tempArray = allPossibleSubset(array,target)
+/*
+In .map it changed the structure of the array. So I need make a deep copy of the array, then concat them together.
+**/
+return   (JSON.parse(JSON.stringify(tempArray)).map((element)=>{ element.push(temp); return element})).concat([[temp]]).concat(tempArray)
+}
+}
+const nPossibleSubset = (array,n)=>{
+   return  allPossibleSubset(array).filter((e)=>{return e.length>=n})
+}
+
+
+
+
+
+console.log('21: ',nPossibleSubset([1,2,3],2))
 
 // 22. Write a JavaScript function that accepts two arguments, a string and a letter and the functionwill count the number of occurrences of the specified letter within the string. 
 // Sample arguments : 'microsoft.com', 'o' Expected output : 3 
