@@ -199,21 +199,42 @@ occurrences[str[i]]++
 }
 return occurrences;
 }
-console.log(numberOfOccurrences("aegsrahsrjerfsrhjwehewerherthesrg"))
+console.log('17: ',numberOfOccurrences("aegsrahsrjerfsrhjwehewerherthesrg"))
 
 // 18. Write a function for searching JavaScript arrays with a binary search. Note : A binary search searches by splitting an array into smaller and smaller chunks until it findsthe desired value.
+const binarySearchArray = (value,array,left,right)=>{
+if(value === array[Math.floor(left+right)/2])
+return Math.floor(left+right)/2
+else if(left>=right)
+return -1
+else if (value>array[Math.floor(left+right)/2])
+return binarySearchArray(value,array,Math.floor(left+right)/2+1,right)
+else return binarySearchArray(value,array,left,Math.floor(left+right)/2-1)
 
+}
+console.log('18: ',binarySearchArray(5,[1,3,5,7,9,10,22],0,6))
 
 
 
 // 19. Write a JavaScript function that returns array elements larger than a number. 
-
-
+const largerThanIt=(array,it)=>{
+    return array.filter((element)=>{return element>it})
+}
+console.log('19: ',largerThanIt([2,43,645,57,3,57,67,4,22],11))
 
 
 // 20. Write a JavaScript function that generates a string id (specified length) of random characters.Samplecharacterlist:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+const randomString = n=>{
+let str = ''
+let Samplecharacterlist="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+for(let i=0;i<n;i++)
+str+= Samplecharacterlist[Math.floor(Math.random()*62)]
+return str
+}
 
 
+
+console.log('20: ',randomString(22))
 
 
 // 21. Write a JavaScript function to get all possible subset with a fixed length (for example 2)combinations in an array. Sample array : [1, 2, 3] and subset length is 2 Expected output : [[2, 1], [3, 1], [3, 2], [3, 2, 1]]
@@ -223,8 +244,14 @@ console.log(numberOfOccurrences("aegsrahsrjerfsrhjwehewerherthesrg"))
 
 // 22. Write a JavaScript function that accepts two arguments, a string and a letter and the functionwill count the number of occurrences of the specified letter within the string. 
 // Sample arguments : 'microsoft.com', 'o' Expected output : 3 
-
-
+const countOccurrences = (str,s)=>{
+    let count = 0;
+for(let i=0;i<str.length;i++)
+if(str[i]===s)
+count ++;
+return count
+}
+console.log('22: ',countOccurrences('microsoft.com', 'o'))
 
 
 // 23. Write a JavaScript function to find the first not repeated character. Sample arguments : 'abacddbec' Expected output : 'e' 
@@ -240,8 +267,12 @@ console.log(numberOfOccurrences("aegsrahsrjerfsrhjwehewerherthesrg"))
 
 
 // 25. Write a JavaScript function that accept a list of country names as input and returns thelongest country name as output. Sample function : Longest_Country_Name(["Australia", "Germany", "United States of America"])Expected output : "United States of America"
+const longestCountryName = array=>{
+    array.sort((a,b)=>{return b.length - a.length})
+    return array[0]
 
-
+}
+console.log('25: ',longestCountryName(["Australia", "Germany", "United States of America"]))
 
 
 
