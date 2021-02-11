@@ -75,6 +75,7 @@ main h1 {
 }
 
 .lorem_ipsum {
+    /* border:1px solid red; */
   width: 80%;
   left: 10%;
   right: 10%;
@@ -90,4 +91,11 @@ main h1 {
   head div {
     left: 0%;
   }
+}
+li{margin-right:20px;
+}
+li::marker { color:red; font-weight:bold; }
+li { margin-left:14px;
+    list-style-type: "★"; 
+/* border:1px solid red */
 }
