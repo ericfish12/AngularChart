@@ -69,6 +69,7 @@ main {
 
 main p,
 main h1 {
+    margin-top:1.5%;
   width: 80%;
   margin-left: 10%;
 }
