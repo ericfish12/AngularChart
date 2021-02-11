@@ -24,8 +24,8 @@ header div {
   justify-content: space-evenly;
 }
 
-header div a,
-footer div a {
+header div ul,
+footer div ul {
   color: white;
   font-size: 1em;
   text-decoration-line: none;
