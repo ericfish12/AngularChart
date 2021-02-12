@@ -365,9 +365,31 @@ console.log('26: ',findLongestSubstring('abcadefbe'))
 // 27. Write a JavaScript function that returns the longest palindrome in a given string. Note: According to Wikipedia "In computer science, the longest palindromic substring or longestsymmetric factor problem is the problem of finding a maximum-length contiguous substring of agiven string that is also a palindrome. For example, the longest palindromic substring of"bananas" is "anana". The longest palindromic substring is not guaranteed to be unique; forexample, in the string "abracadabra", there is no palindromic substring with length greater thanthree, but there are two palindromic substrings with length three, namely, "aca" and "ada".In some applications it may be necessary to return all maximal palindromic substrings (that is, allsubstrings that are themselves palindromes and cannot be extended to larger palindromicsubstrings) rather than returning only one substring or returning the maximum length of apalindromic substring.
 
 
+const longestPalindrome = (str)=>{
+let target = [];
+for(let i=0 ; i<str.length ;i++)
+for(let j=i; j<str.length; j++)
+if(isPalinfrome( str.substring(i,j+1)))
+target.push( str.substring(i,j+1))
+target.sort((a,b)=>{return b.length-a.length})
+let count = target[0].length
+return target.filter((e)=>{return e.length ===count})
+}
 
+
+console.log('27: ',longestPalindrome('abracadabra'))
 
 // 28. Write a JavaScript program to pass a 'JavaScript function' as parameter. 
+const aFunction = ()=>5
+
+
+const functionPassFunction =(callback)=>{
+console.log(callback())
+}
+
+console.log('28: '); functionPassFunction(aFunction)
+
+
 
 
 
