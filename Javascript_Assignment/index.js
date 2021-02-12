@@ -283,15 +283,51 @@ console.log('22: ',countOccurrences('microsoft.com', 'o'))
 
 
 // 23. Write a JavaScript function to find the first not repeated character. Sample arguments : 'abacddbec' Expected output : 'e' 
+const firstNotRepeat= (str)=>{
+let seen = {};
+for(let i = 0;i<str.length;i++){
+if(seen[str[i]]===undefined){
+
+    if(str.slice(i+1).split('').includes(str[i]))
+    seen[str[i]]=true;
+else return str[i]
 
 
+}
+else
+continue;
+}
 
+return -1;
+
+}
+
+console.log('23: ',firstNotRepeat('abacddbec'))
 
 
 // 24. Write a JavaScript function to apply Bubble Sort algorithm. Note : According to wikipedia "Bubble sort, sometimes referred to as sinking sort, is a simplesorting algorithm that works by repeatedly stepping through the list to be sorted, comparingeach pair of adjacent items and swapping them if they are in the wrong order". Sample array : [12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]Expected output : [3223, 546, 455, 345, 234, 213, 122, 98, 84, 64, 23, 12, 9, 4, 1]
 
+const swap = (array,a,b)=>{
+let temp = array[a]
+array[a] = array[b]
+array[b]=temp;
+}
+const bubbleSort = (array)=>{
+for(let i = 0; i< array.length; i++)
+for(let j =0 ;j < array.length-i-1;j++){
+if(array[j]<array[j+1])
+swap(array,j,j+1)
+}
+
+return array;
+}
 
 
+
+
+
+
+console.log('24: ',bubbleSort([12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213]))
 
 
 // 25. Write a JavaScript function that accept a list of country names as input and returns thelongest country name as output. Sample function : Longest_Country_Name(["Australia", "Germany", "United States of America"])Expected output : "United States of America"
@@ -305,9 +341,24 @@ console.log('25: ',longestCountryName(["Australia", "Germany", "United States of
 
 
 // 26. Write a JavaScript function to find longest substring in a given a string without repeatingcharacters. 
+const findLongestSubstring=(str)=>{
+let target = [];
+for(let i =0;i< str.length;i++){
 
+for(let j =i; j< str.length; j++){
+if(str.substring(i,j+1).includes(str[j+1])||j===str.length-1){
+target.push(str.substring(i,j+1))
 
+break;
+}
+}
+}
+target.sort((a,b)=>{return b.length-a.length})
+console.log(target)
+return target[0]
+}
 
+console.log('26: ',findLongestSubstring('abcadefbe'))
 
 
 
