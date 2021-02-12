@@ -394,3 +394,10 @@ console.log('28: '); functionPassFunction(aFunction)
 
 
 // 29. Write a JavaScript function to get the function name. 
+
+const getThisName=()=>{
+
+console.log(this.name)
+
+}
+getThisName.call(getThisName)
