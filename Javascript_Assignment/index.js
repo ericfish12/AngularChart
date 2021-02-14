@@ -374,7 +374,10 @@ functionPassFunction(aFunction);
 
 // 29. Write a JavaScript function to get the function name.
 
-const getThisName = () => {
-  console.log(getThisName.name);
+const getThisName = (callback) => {
+ return callback.name;
 };
-getThisName();
+getThisName('29: ',console.log(getThisName(aFunction)));
+
+
+
