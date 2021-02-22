@@ -14,7 +14,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Akaya Kanadaka", cursive;
+   
     /* font-family:'Times New Roman', Times, serif; */
 }
 html,
@@ -24,6 +24,7 @@ body {
     overflow: hidden;
 }
 .header {
+    font-family: "Akaya Kanadaka", cursive;
     position: fixed;
     height: var(--height-header);
     width: 100%;

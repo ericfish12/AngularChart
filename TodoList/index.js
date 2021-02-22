@@ -59,18 +59,19 @@ const AppController = ((view) => {
         todoElement.addEventListener('click', (event) => {
             array = array.filter(todo => +todo.id !== +event.target.id);
             view.render( document.getElementById('todolist-content'),view.inittodolsitTmp(array))
+            //axios.delete('')
         });
     }
 
 const addListenerOnAdd = ()=>{
 const toAddItem = document.getElementById('add_item');
-toAddItem.addEventListener('click',(e)=>{
+toAddItem.addEventListener('click',()=>{
 const inputContentss =( document.getElementsByClassName(
     ' todolist__input'))
-  array.unshift({title:inputContentss[0].value})
+  array.unshift({title:inputContentss[0].value,id:911})
   view.render( document.getElementById('todolist-content'),view.inittodolsitTmp(array))
   inputContentss[0].value=''
-
+//axios.post('',{})
 
 })
 
@@ -84,8 +85,9 @@ const inputContentss =( document.getElementsByClassName(
          console.log(data)
         array = data;
           view.render( document.getElementById('todolist-content'),view.inittodolsitTmp(data))
-            addListenerOnRemove();
+           
             addListenerOnAdd();
+            addListenerOnRemove();
         });
     }
     return {
