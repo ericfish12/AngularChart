@@ -72,6 +72,7 @@ p {
   border-radius: 5px;
   height: 15vw;
   background-color: rgb(240, 238, 238);
+  overflow: hidden;
 }
 
 img {
