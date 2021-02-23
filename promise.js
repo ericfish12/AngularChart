@@ -186,27 +186,27 @@ class MyPromise {
 
 
 
-const p = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("promise", 1);
-    resolve("hello");
-  }, 3 * 1000);
-})
-  .then((data) => {
-    console.log(data, 2);
-    // return new MyPromise((res, rej) => {
-    //     setTimeout(() => {
-    //   res("Dio");
-    // }, 3 * 1000);
-    // });
-//   })
+// const p = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("promise", 1);
+//     resolve("hello");
+//   }, 3 * 1000);
+// })
 //   .then((data) => {
-//     // setTimeout(() => {
-//     console.log(data, 3);
-// // }, 3 * 1000);
-  });
+//     console.log(data, 2);
+//     // return new MyPromise((res, rej) => {
+//     //     setTimeout(() => {
+//     //   res("Dio");
+//     // }, 3 * 1000);
+//     // });
+// //   })
+// //   .then((data) => {
+// //     // setTimeout(() => {
+// //     console.log(data, 3);
+// // // }, 3 * 1000);
+//   });
 
-console.log(p,"ppppppp")
+// console.log(p,"ppppppp")
 
 
 
@@ -237,8 +237,11 @@ console.log(p,"ppppppp")
 
 
 
-    // const getAllTodos = () =>
-    //     fetch('https://jsonplaceholder.typicode.com/todos')
-    //         .then((response) => response.json());
+    const getAllTodos = () =>
+        fetch('https://ericfish.herokuapp.com/api/todos',{
+            mode: 'cors',
+        })
+            .then((response) => response.json())
+            .then((data)=>{console.log(data)})
 
-    //         getAllTodos();
+            getAllTodos();

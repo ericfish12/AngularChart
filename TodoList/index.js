@@ -131,7 +131,7 @@ const AppController = (() => {
               .then((json) => {
                 document.getElementById(`span${event.target.name}`).innerText =
                   json.title;
-                  addListenerOnRemove();
+                      addListenerOnRemove();
               });
 
             document.getElementById("edit_input").style.visibility = "hidden";
@@ -142,13 +142,22 @@ const AppController = (() => {
   };
 
   const init = async () => {
+
+  
+
     todoAPI.getAllTodos().then((data) => {
-      console.log(data);
+     
       array = data;
       View.render(
         document.getElementById("todolist-content"),
         View.inittodolsitTmp(data)
       );
+
+
+ 
+
+
+
 
       addListenerOnAdd();
        addListenerOnRemove();
