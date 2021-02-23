@@ -109,6 +109,7 @@ const AppController = (() => {
           );
           inputContentss[0].value = "";
           addListenerOnEdit();
+          addListenerOnRemove();
         }
       )
    
@@ -130,9 +131,11 @@ const AppController = (() => {
               .then((json) => {
                 document.getElementById(`span${event.target.name}`).innerText =
                   json.title;
+                  addListenerOnRemove();
               });
 
             document.getElementById("edit_input").style.visibility = "hidden";
+        
           });
       });
     });
