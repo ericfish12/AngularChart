@@ -191,7 +191,7 @@ const p = new Promise((resolve, reject) => {
     console.log("promise", 1);
     resolve("hello");
   }, 3 * 1000);
-}).then().then().then().then().then().then()
+})
   .then((data) => {
     console.log(data, 2);
     // return new MyPromise((res, rej) => {
@@ -199,14 +199,14 @@ const p = new Promise((resolve, reject) => {
     //   res("Dio");
     // }, 3 * 1000);
     // });
-  })
-  .then((data) => {
-    // setTimeout(() => {
-    console.log(data, 3);
-// }, 3 * 1000);
+//   })
+//   .then((data) => {
+//     // setTimeout(() => {
+//     console.log(data, 3);
+// // }, 3 * 1000);
   });
 
-//console.log(p,"ppppppp")
+console.log(p,"ppppppp")
 
 
 

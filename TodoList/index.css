@@ -101,12 +101,12 @@ ul li button:hover {
     font-size: 1.4rem;
 }
 ul li button:active {
-    font-size: 0.1rem;
-    color: red;
+    font-size: 1rem;
+    color:yellow;
 }
 ul li span {
     line-height: var(--height-todolist-header);
-    width: 90%;
+    width: 70%;
     overflow: hidden;
     user-select: none;
 }
@@ -120,4 +120,8 @@ button{
 .todolist__input{
 display: inline;
 width:90%;
+}
+
+#edit_input{
+    visibility: hidden;
 }
