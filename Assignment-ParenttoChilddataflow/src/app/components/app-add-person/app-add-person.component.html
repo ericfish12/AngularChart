@@ -1,0 +1,11 @@
+ 
+    <div class="col">
+        <input [(ngModel)]="person" type="text"  placeholder="First name" aria-label="First name">
+        <button (click)="addPerson()" type="button" class="btn btn-success">Add</button>
+      </div>
+ 
+      <app-app-person-list  [people1]="people" ></app-app-person-list>
+
+
+
+
