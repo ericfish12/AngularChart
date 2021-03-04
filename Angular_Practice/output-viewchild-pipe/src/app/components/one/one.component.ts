@@ -1,28 +1,27 @@
-
-import { Component, ViewChild } from '@angular/core';
-import { app-two } from './components/two/two.component';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { TwoComponent } from '../two/two.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-one',
+  templateUrl: './one.component.html',
+  styleUrls: ['./one.component.scss']
 })
-export class AppComponent {
+export class OneComponent implements OnInit {
   title = 'ParentChildCommunication';
   message!: string;
 
-  @ViewChild(app-two)
-  cnt!: CounterComponentComponent;
+  @ViewChild(TwoComponent)
+  cnt!: TwoComponent;
 
   ngOnInit() {
-
+    this.message = "Max Click Reached, click reset to continue...";
   }
 
-  ngAfterViewInit() {
-    this.cnt.interval = 20;
-  }
+  // ngAfterViewInit() {
+  //   this.cnt.interval = 20;
+  // }
 
-  p_reset(c: CounterComponentComponent) {
+  p_reset(c: TwoComponent) {
     c.reset();
   }
 
@@ -32,4 +31,5 @@ export class AppComponent {
     else
       this.message = "";
   }
+
 }

@@ -1,6 +1,9 @@
 <div class="container">
-    <h2 class="text-danger">{{message}}</h2>
-    <app-two #c1 (onMax)=maxedOut($event)></app-two>
+    <h2 class="text-danger" *ngIf = 'c1.flag'>{{message}} </h2>
+    <!--  (onMax)=maxedOut($event) -->
+    <app-two 
+    #c1
+    ></app-two>
     <br/>
     <br/>
     <button class="btn btn-danger btn-block" (click)=c1.reset()>Parent Reset</button>
