@@ -36,6 +36,7 @@ confirm: new FormControl('', [equal]),
   }
 
 onChange(){
+  console.log(this.rForm.get('confirm'))
 equal(this.rForm.get('confirm'))
 
 }

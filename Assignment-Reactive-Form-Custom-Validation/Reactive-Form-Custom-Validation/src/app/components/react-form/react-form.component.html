@@ -46,7 +46,7 @@
 
 
 <label for='password'>Password:</label>
-<input type='text' formControlName='password' name= 'password'  class = 'form-control' />
+<input type='text' formControlName='password' name= 'password'  class = 'form-control' (ngModelChange)='onChange()'/>
 <div *ngIf = 'rForm.get("password")!.touched&&rForm.get("password")!.invalid' class = 'alert alert-danger'>
     <div *ngIf="rForm.get('password')!.hasError('required')">
         password is required!

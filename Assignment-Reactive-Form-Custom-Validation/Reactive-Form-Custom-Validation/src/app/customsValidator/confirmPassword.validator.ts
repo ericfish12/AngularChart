@@ -4,7 +4,7 @@ import { AbstractControl, ValidationErrors } from "@angular/forms";
 export function equal(control: AbstractControl): ValidationErrors | null {
 
      const v = control.value;
-
+console.log(222222)
 
     // const password: string = control.get('password').value; // get password from our password form control
     // const confirmPassword: string = control.get('confirmPassword').value; // get password from our confirmPassword form control
@@ -15,9 +15,9 @@ export function equal(control: AbstractControl): ValidationErrors | null {
     // }
 
 const r = control.parent&&control.parent.controls['password'].value
-
+console.log(v,r)
     if (v!=r) {
-
+        control.setErrors({'equal':true})
         return { 'equal': true, 'requiredSame': 'same' };
     }
 
