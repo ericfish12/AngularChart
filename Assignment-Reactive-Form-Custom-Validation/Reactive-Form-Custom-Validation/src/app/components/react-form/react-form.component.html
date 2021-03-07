@@ -1,87 +1,112 @@
-<h1 style='text-align: center;'>Welcome to Reactive Forms!</h1>
+<h1 style="text-align: center">Welcome to Reactive Forms!</h1>
 
-<form [formGroup]="rForm" (ngSubmit)='onSubmit()'>
-    <label for='name'>Name:</label>
-<input type='text' formControlName='name' name= 'name'  class = 'form-control' />
-<div *ngIf = 'rForm.get("name")!.touched&&rForm.get("name")!.invalid' class = 'alert alert-danger'>
-    <div *ngIf="rForm.get('name')!.hasError('required')">
-        Name is required!
-    </div>
-    <div *ngIf="rForm.get('name')!.hasError('pattern')">
-       Invalid name!
-    </div>
+<form [formGroup]="rForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name:</label>
+  <input type="text" formControlName="name" name="name" class="form-control" />
+  <div
+    *ngIf="rForm.get('name')!.touched && rForm.get('name')!.invalid"
+    class="alert alert-danger"
+  >
+    <div *ngIf="rForm.get('name')!.hasError('required')">Name is required!</div>
+    <div *ngIf="rForm.get('name')!.hasError('pattern')">Invalid name!</div>
+  </div>
 
-</div>
-
-<label for='contact'>Contact:</label>
-<input type='text' formControlName='contact' name= 'contact'  class = 'form-control' />
-<div *ngIf = 'rForm.get("contact")!.touched&&rForm.get("contact")!.invalid' class = 'alert alert-danger'>
+  <label for="contact">Contact:</label>
+  <input
+    type="text"
+    formControlName="contact"
+    name="contact"
+    class="form-control"
+  />
+  <div
+    *ngIf="rForm.get('contact')!.touched && rForm.get('contact')!.invalid"
+    class="alert alert-danger"
+  >
     <div *ngIf="rForm.get('contact')!.hasError('required')">
-        Contact is required!
+      Contact is required!
     </div>
     <div *ngIf="rForm.get('contact')!.hasError('pattern')">
-       Invalid Contact!
+      Invalid Contact!
     </div>
-    <div *ngIf="rForm.get('contact')!.hasError('minlength')&&!rForm.get('contact')!.hasError('pattern') ">
-        Not Enough Digital!
-     </div>
-     <div *ngIf="rForm.get('contact')!.hasError('maxlength')&&!rForm.get('contact')!.hasError('pattern') ">
-        Too much Digital!
-     </div>
+    <div
+      *ngIf="
+        rForm.get('contact')!.hasError('minlength') &&
+        !rForm.get('contact')!.hasError('pattern')
+      "
+    >
+      Not Enough Digital!
+    </div>
+    <div
+      *ngIf="
+        rForm.get('contact')!.hasError('maxlength') &&
+        !rForm.get('contact')!.hasError('pattern')
+      "
+    >
+      Too much Digital!
+    </div>
+  </div>
 
-</div>
-
-<label for='email'>Email:</label>
-<input type='text' formControlName='email' name= 'email'  class = 'form-control' />
-<div *ngIf = 'rForm.get("email")!.touched&&rForm.get("email")!.invalid' class = 'alert alert-danger'>
+  <label for="email">Email:</label>
+  <input
+    type="text"
+    formControlName="email"
+    name="email"
+    class="form-control"
+  />
+  <div
+    *ngIf="rForm.get('email')!.touched && rForm.get('email')!.invalid"
+    class="alert alert-danger"
+  >
     <div *ngIf="rForm.get('email')!.hasError('required')">
-        Email is required!
+      Email is required!
     </div>
-    <div *ngIf="rForm.get('email')!.hasError('email')">
-       Invalid Email!
-    </div>
+    <div *ngIf="rForm.get('email')!.hasError('email')">Invalid Email!</div>
+  </div>
 
-</div>
-
-
-
-<label for='password'>Password:</label>
-<input type='text' formControlName='password' name= 'password'  class = 'form-control' (ngModelChange)='onChange()'/>
-<div *ngIf = 'rForm.get("password")!.touched&&rForm.get("password")!.invalid' class = 'alert alert-danger'>
+  <label for="password">Password:</label>
+  <input
+    type="text"
+    formControlName="password"
+    name="password"
+    class="form-control"
+    (ngModelChange)="onChange()"
+  />
+  <div
+    *ngIf="rForm.get('password')!.touched && rForm.get('password')!.invalid"
+    class="alert alert-danger"
+  >
     <div *ngIf="rForm.get('password')!.hasError('required')">
-        password is required!
+      password is required!
     </div>
-    <div *ngIf="rForm.get('password')!.hasError('minlength')">
-       Not Safe!
-    </div>
+    <div *ngIf="rForm.get('password')!.hasError('minlength')">Not Safe!</div>
+  </div>
 
-</div>
-
-
-<label for='confirm'>Confirm Password:</label>
-<input type='text' formControlName='confirm' name= 'confirm'  class = 'form-control' />
-<div *ngIf = 'rForm.get("confirm")!.touched&&rForm.get("confirm")!.invalid' class = 'alert alert-danger'>
+  <label for="confirm">Confirm Password:</label>
+  <input
+    type="text"
+    formControlName="confirm"
+    name="confirm"
+    class="form-control"
+  />
+  <div
+    *ngIf="rForm.get('confirm')!.touched && rForm.get('confirm')!.invalid"
+    class="alert alert-danger"
+  >
     <div *ngIf="rForm.get('confirm')!.hasError('required')">
-        password is required!
+      password is required!
     </div>
-    <div *ngIf="rForm.get('confirm')!.hasError('equal')">
-       Not Match!
-    </div>
+    <div *ngIf="rForm.get('confirm')!.hasError('equal')">Not Match!</div>
+  </div>
 
-</div>
-
-
-
-
-
-<button type = 'submit' class = 'btn btn-success' [disabled]= rForm.invalid>Submit</button>
+  <button type="submit" class="btn btn-success" [disabled]="rForm.invalid">
+    Submit
+  </button>
 </form>
 
-
-<li *ngFor = 'let user of users'>
-<B>{{user.name}}</B>
-<B>{{user.contact}}</B>
-<B>{{user.email}}</B>
-<B>{{user.password}}</B>
-<B>{{user.confirm}}</B>
+<li *ngFor="let user of users">
+  <B>Name:</B>{{ user.name }}
+  <B>Contact:</B>{{ user.contact }}
+  <B>Email:</B>{{ user.email }}
+  <B>Password:</B>{{ user.password }}
+  <B>Confirm Password:</B>{{ user.confirm }}
 </li>
