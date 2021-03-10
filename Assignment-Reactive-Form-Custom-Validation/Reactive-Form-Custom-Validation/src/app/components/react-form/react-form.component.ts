@@ -41,12 +41,12 @@ export class ReactFormComponent implements OnInit {
   }
 
   onChange() {
-    console.log(this.rForm.get('confirm'));
+    // console.log(this.rForm.get('confirm'));
     equal(this.rForm.get('confirm'));
   }
 
   onSubmit() {
-    console.log(this.rForm.value);
+    // console.log(this.rForm.value);
     this.users.push(this.rForm.value);
   }
 }
