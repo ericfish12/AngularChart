@@ -1,0 +1,24 @@
+
+
+    <header class="header">
+        <i class="fa fa-search" id="search_barh-i"></i>
+      <input placeholder="Search..." id="search_bar"  [(ngModel)]="inputVal"   (ngModelChange)= onChange() />
+    </header>
+    <section class="prompt">
+      <h6>Search Albums by ArtistName:</h6>
+      <p></p>
+    </section>
+    <main class="content">
+
+
+      <div class = 'card' *ngFor ='let ele of array'>
+        <img src = {{ele.artworkUrl60}} alt="Avatar" key={{ele.artistId}}  />
+        <h4><b>{{ele.artistName}}</b></h4> 
+        </div>
+
+
+
+
+    </main>
+
+
