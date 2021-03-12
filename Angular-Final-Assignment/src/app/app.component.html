@@ -1,0 +1,37 @@
+<header class="header">
+  <i class="fa fa-search" id="search_barh-i"></i>
+  <input
+    placeholder="Search..."
+    id="search_bar"
+    [(ngModel)]="inputVal"
+    (keyup)="onKey($event)"
+  />
+</header>
+<section class="prompt">
+  <h6 id="first-display">Search Albums by ArtistName:</h6>
+  <h6 id="later-display">
+    Total {{ resultsCount }} results found for '{{ lastInputVal }}' | Select
+    page size:
+    <select #select (change)="onSelect($event, select.value)">
+      <option value="default">default</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="200">200</option>
+    </select>
+  </h6>
+  <p></p>
+</section>
+<main class="content">
+  <div class="card" *ngFor="let ele of array">
+    <img src="{{ ele.artworkUrl60 }}" alt="Avatar" key="{{ ele.artistId }}" />
+    <br />
+    <h5>
+      <b>{{ ele.artistName }}</b>
+    </h5>
+    <br />
+    <div id="collectionName">{{ ele.collectionName }}</div>
+  </div>
+</main>
