@@ -1,5 +1,6 @@
 
   .header {
+    z-index:1;
     font-family: "Akaya Kanadaka", cursive;
     position: fixed;
     height: 60px;
@@ -71,6 +72,7 @@
   }
   
   .card {
+    position: relative;
     margin-left: 3px;
     margin-top: 20px;
     text-align: center;
@@ -82,7 +84,7 @@
     height: 15vw;
     background-color: rgb(240, 238, 238);
     overflow: hidden;
-    
+    // z-index:-2;
   }
   
   img {
@@ -106,3 +108,22 @@ display: none;
       font-size: 0.2em;
       color:grey;
   }
+
+.remark{
+  width:100%;
+  position: absolute;
+  bottom:0px;
+  
+
+  display: flex;
+  justify-content: space-between;
+  span{
+    border:1px solid black;
+  }
+}
+
+
+.active{
+
+  color:red;
+}

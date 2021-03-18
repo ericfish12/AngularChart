@@ -1,0 +1,12 @@
+
+<h3>List Component</h3>
+
+Filter By: <input type="text" [(ngModel)]=by (ngModelChange)=hi()>
+
+<h4>Selected Person: {{selectedPerson}}</h4>
+
+<ul>
+    <li *ngFor="let person of personList ">
+        <a href="http://www.google.com" (click)=doClick($event,person)>{{person}}</a>
+    </li>
+</ul>

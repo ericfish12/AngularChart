@@ -14,16 +14,20 @@ export class AppComponent {
   lastInputVal!: string; //static input value when press Enter
   array: any[] = []; //  albums to be rendered
   albums: any[] = []; // All albums from server
+
   constructor(private dservice: HttpServiceService) {}
   ngOnInit() {
     //get search keyword from localStorage if any then assign it to static input value holder
     let initVal = localStorage.getItem('lastInput') || '';
     this.lastInputVal = initVal;
     if (initVal !== '') {
-      this.inputVal = initVal;    //render the input value in input tag 
+      this.inputVal = initVal; //render the input value in input tag
       this.dservice.getPosts(initVal).subscribe((r) => {
         this.albums = r.results;
         this.array = r.results;
+        // for (let arr of this.array)
+        // {arr.isLike = this.isLike}
+        // console.log(this.array[0])
         this.resultsCount = r.resultCount;
         document.getElementById('later-display').style.display = 'unset';
         document.getElementById('first-display').style.display = 'none';
@@ -41,14 +45,29 @@ export class AppComponent {
       this.lastInputVal = this.inputVal;
       this.dservice.getPosts(this.inputVal).subscribe((r) => {
         this.array = r.results;
+        // for (let arr of this.array)
+        // {arr.isLike = this.isLike}
+        // console.log(this.array[0])
+
         this.albums = r.results;
         this.resultsCount = r.resultCount;
 
         document.getElementById('later-display').style.display = 'unset';
         document.getElementById('first-display').style.display = 'none';
-        document.getElementsByTagName('select')[0].selectedIndex = 0;  //set default option as default
+        document.getElementsByTagName('select')[0].selectedIndex = 0; //set default option as default
       });
       localStorage.setItem('lastInput', this.inputVal);
+    }
+  }
+
+  onLike(e: any) {
+    if (e.target.className == 'active') {
+      e.target.classList.remove('active');
+    } else if (e.target.className == '') {
+      e.target.className = 'active';
+      (e.target.nextSibling || e.target.previousSibling).classList.remove(
+        'active'
+      );
     }
   }
 }

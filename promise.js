@@ -20,13 +20,6 @@
 //     };
 //     myObj.myMethod([1]);
 
-
-
-
-
-
-
-
 // class MyPromise {
 //     state = 'pending';
 //   currentData;
@@ -44,25 +37,20 @@
 //   reject(error) {}
 
 //    then(thencallbackfun) {
-   
+
 //       console.log(this.state)
 //   if(this.state=="OK")
 // return thencallbackfun(this.currentData);
-    
+
 //       else
 // setTimeout(()=>{
 //     this.then(thencallbackfun)
 
 // },0)
-  
-  
-
 
 //   }
 //   catch() {}
 // }
-
-
 
 // // promise.all
 
@@ -86,105 +74,83 @@
 
 // console.log(p)
 
-
-
-
-
 class MyPromise {
-    thenCallBackQueue = [];
-    currentData;
-    promisestate = 'pending';
+  thenCallBackQueue = [];
+  currentData;
+  promisestate = "pending";
 
-    constructor(executor) {
-        executor(this.resolve.bind(this), this.reject.bind(this));
-    }
+  constructor(executor) {
+    executor(this.resolve.bind(this), this.reject.bind(this));
+  }
 
-    resolve(data) {
-        setTimeout(() => {
-           
-            // this.promisestate = 'fulfilled';
-            if (!this.thenCallBackQueue.length) return;
-            this.currentData = data;
-            while (this.thenCallBackQueue.length) {
-                const cb = this.thenCallBackQueue.shift();
+  resolve(data) {
+    setTimeout(() => {
+      // this.promisestate = 'fulfilled';
+      if (!this.thenCallBackQueue.length) return;
+      this.currentData = data;
+      while (this.thenCallBackQueue.length) {
+        const cb = this.thenCallBackQueue.shift();
 
-                if (this.currentData instanceof MyPromise) {
-                    this.currentData.then(dataFromRes => {
-                        this.currentData = cb(dataFromRes);
-                    });
-                } else {
-                 //   console.log("here.......",this.currentData)
-                    this.currentData = cb(this.currentData)||this.currentData;
-                }
-            } 
-        }, 0);
-    }
-    reject(error) {
-        this.promisestate = 'rejected';
-    }
-    then(thencallbackfun) {
-      //  console.log(this.currentData,22222)
+        if (this.currentData instanceof MyPromise) {
+          this.currentData.then((dataFromRes) => {
+            this.currentData = cb(dataFromRes);
+          });
+        } else {
+          //   console.log("here.......",this.currentData)
+          this.currentData = cb(this.currentData) || this.currentData;
+        }
+      }
+    }, 0);
+  }
+  reject(error) {
+    this.promisestate = "rejected";
+  }
+  then(thencallbackfun) {
+    //  console.log(this.currentData,22222)
     //   if(thencallbackfun)
-        this.thenCallBackQueue.push(thencallbackfun);
-        return this;
-    }
-    catch() { }
+    this.thenCallBackQueue.push(thencallbackfun);
+    return this;
+  }
+  catch() {}
 
-    // promise.all
+  // promise.all
 
-    static all(array) {
-        let counter = 0;
-        const resolveData = new Array(array.length); // 
+  static all(array) {
+    let counter = 0;
+    const resolveData = new Array(array.length); //
 
-        return new MyPromise((res, rej) => {
-            array.forEach((ele, i) => {
-                if (ele instanceof MyPromise) {
-                    ele.then(data => {
-                        counter++;
-                        resolveData[i] = data;
-                        if (counter === array.length)
-                            res(resolveData);
-                    }).catch(err => rej(err));
-                } else {
-                    counter++;
-                    resolveData[i] = ele;
-                    if (counter === array.length)
-                        res(resolveData);
-                }
-            });
-        });
-    }
+    return new MyPromise((res, rej) => {
+      array.forEach((ele, i) => {
+        if (ele instanceof MyPromise) {
+          ele
+            .then((data) => {
+              counter++;
+              resolveData[i] = data;
+              if (counter === array.length) res(resolveData);
+            })
+            .catch((err) => rej(err));
+        } else {
+          counter++;
+          resolveData[i] = ele;
+          if (counter === array.length) res(resolveData);
+        }
+      });
+    });
+  }
 
-
-
-    // Promise.resolve
-    static resolve(resdata) {
-        return new MyPromise((resolve, _) => {
-            resolve(resdata)
-        });
-    }
-    // Promise.reject
-    static reject(rejdata) {
-        return new MyPromise((_, reject) => {
-            reject(rejdata);
-        });
-    }
-
-
-
-
-
-
+  // Promise.resolve
+  static resolve(resdata) {
+    return new MyPromise((resolve, _) => {
+      resolve(resdata);
+    });
+  }
+  // Promise.reject
+  static reject(rejdata) {
+    return new MyPromise((_, reject) => {
+      reject(rejdata);
+    });
+  }
 }
-
-
-
-
-
-
-
-
-
 
 // const p = new Promise((resolve, reject) => {
 //   setTimeout(() => {
@@ -208,13 +174,6 @@ class MyPromise {
 
 // console.log(p,"ppppppp")
 
-
-
- 
- 
-
-
-
 //     const promise1 = MyPromise.resolve(3);
 // const promise2 = 42;
 // const promise3 = new MyPromise((resolve, reject) => {
@@ -223,7 +182,7 @@ class MyPromise {
 // // console.log(promise3.then(data => console.log(4)));
 
 // MyPromise.all([
-//     promise1, 
+//     promise1,
 //     promise2,
 //     promise3
 // ]).then().then()
@@ -231,17 +190,27 @@ class MyPromise {
 //     console.log(values);
 // });
 
+// const getAllTodos = () =>
+//     fetch('https://ericfish.herokuapp.com/api/todos',{
+//         mode: 'cors',
+//     })
+//         .then((response) => response.json())
+//         .then((data)=>{console.log(data)})
 
+//         getAllTodos();
 
+const cb1 = (m) => m + 2;
+const cb2 = (m) => m * 2;
+const cb3 = (m) => m * 10;
 
+const runAll = (...args) => {
+  return function (m) {
+    while (args.length) {
+      m = args.shift()(m);
+    }
+    return m;
+  };
+};
 
-
-
-    const getAllTodos = () =>
-        fetch('https://ericfish.herokuapp.com/api/todos',{
-            mode: 'cors',
-        })
-            .then((response) => response.json())
-            .then((data)=>{console.log(data)})
-
-            getAllTodos();
+let result = runAll(cb1, cb2, cb3)(3);
+console.log(result);

@@ -1,15 +1,16 @@
-<header class="header">
+<header class="header" > 
   <i class="fa fa-search" id="search_barh-i"></i>
   <input
     placeholder="Search..."
     id="search_bar"
     [(ngModel)]="inputVal"
     (keyup)="onKey($event)"
+    
   />
 </header>
 <section class="prompt">
   <h6 id="first-display">Search Albums by ArtistName:</h6>
-  <h6 id="later-display">
+  <h6 id="later-display" >
     Total {{ resultsCount }} results found for '{{ lastInputVal }}' | Select
     page size:
     <select #select (change)="onSelect($event, select.value)">
@@ -24,8 +25,8 @@
   </h6>
   <p></p>
 </section>
-<main class="content">
-  <div class="card" *ngFor="let ele of array">
+<main class="content" >
+  <div class="card" *ngFor="let ele of array" >
     <img src="{{ ele.artworkUrl60 }}" alt="Avatar" key="{{ ele.artistId }}" />
     <br />
     <h5>
@@ -33,5 +34,8 @@
     </h5>
     <br />
     <div id="collectionName">{{ ele.collectionName }}</div>
+    <div class = 'remark' (click)="onLike($event)">  <span>Like <i class="far fa-thumbs-up"></i>
+      </span><span>Dislike</span></div>
+   
   </div>
 </main>
