@@ -7,10 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-Practice-reuseComponent';
-
+headColor :string= 'black'
+state:string=''
 
 color:string[]=['red','black','green','blue']
 
-
+seHeadColor(e){
+this.headColor = e
+this.state = e
+}
 
 }

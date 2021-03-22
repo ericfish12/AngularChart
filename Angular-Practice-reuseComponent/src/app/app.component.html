@@ -1,16 +1,17 @@
 
 
 
-<h1>
+<h1 [ngStyle] = "{'color':headColor}">
   CSS saves a lot of work. It can control the layout of multiple web pages all at once.
 </h1>
 
 
-
-
+<!-- （currentColor）= "setHeadColor($event)"  -->
+<!--(newItemEvent)="addItem($event)"   -->
 <div class = 'container'> 
-<app-block  [color]=  "color[0]" ></app-block>
-<app-block  [color]=  "color[1]" ></app-block>
-<app-block  [color]=  "color[2]" ></app-block>
-<app-block  [color]=  "color[3]" ></app-block>
+<app-block  (currentColor)="seHeadColor($event)"  [color]=  "color[0]"   [(selected)]="state"  ></app-block>
+<app-block (currentColor)="seHeadColor($event)" [color]=  "color[1]" [(selected)]="state"></app-block>
+<app-block (currentColor)="seHeadColor($event)" [color]=  "color[2]" [(selected)]="state"></app-block>
+<app-block (currentColor)="seHeadColor($event)" [color]=  "color[3]" [(selected)]="state"></app-block>
 </div>
+
