@@ -33,13 +33,12 @@ ngDoCheck(){
     console.log(2,this.selected)
   }
 
-ngAfterContentChecked(){
-   this.state =""
-if(this.selected == this.color)
-this.state ="10px 5px 5px "+ this.selected
 
-  console.log(3,this.color)
-  
+ngAfterContentChecked(){
+ //state is for boxShadow; 
+   this.state =""              //clear all four components boxShadow
+if(this.selected == this.color)         //select the current clicked component 
+this.state ="10px 5px 5px "+ this.selected       // set this component's boxShadow
 }
 
 
