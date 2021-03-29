@@ -1,0 +1,12 @@
+<p>all-photos works!</p>
+
+
+
+<div class = "container">
+
+<div *ngFor= "let photo of allPhotos; let key = index " class = 'item'>
+
+<b>{{photo.id}}</b>
+<img  routerLink="/onePhoto" [queryParams] =  "{oop:key}"  src = {{photo.url}} />
+</div>
+</div>

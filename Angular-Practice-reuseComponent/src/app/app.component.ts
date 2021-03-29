@@ -13,8 +13,18 @@ state:string=''
 color:string[]=['red','black','green','blue']
 
 seHeadColor(e){
+  console.log('here',e)
 this.headColor = e
 this.state = e
 }
+
+
+reran(){
+
+
+}
+
+
+
 
 }

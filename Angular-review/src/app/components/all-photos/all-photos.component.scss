@@ -1,0 +1,21 @@
+.container{
+   display: flex;
+   flex-wrap: wrap;
+}
+.item{
+
+    height : 100px;
+    width:100px;
+
+}
+b{
+    position:absolute;
+z-index :1;
+}
+img{
+
+    position:absolute;
+    height : 100px;
+    width:100px;
+
+}

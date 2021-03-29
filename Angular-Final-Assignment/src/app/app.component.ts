@@ -7,8 +7,10 @@ import { HttpServiceService } from './service/http-service.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular-Final-Assignment';
 
+  value!:any
+  title = 'Angular-Final-Assignment';
+flag :boolean = false;
   resultsCount!: number; //numbers of albums
   inputVal!: string; //search input value double binding
   lastInputVal!: string; //static input value when press Enter
@@ -29,15 +31,16 @@ export class AppComponent {
         // {arr.isLike = this.isLike}
         // console.log(this.array[0])
         this.resultsCount = r.resultCount;
-        document.getElementById('later-display').style.display = 'unset';
-        document.getElementById('first-display').style.display = 'none';
+       this.flag = true
       });
     }
   }
 
   onSelect(event: any, value: any) {
-    if (value !== 'default') this.array = this.albums.slice(0, value);
-    else this.array = this.albums;
+    // if (value !== 'default') this.array = this.albums.slice(0, value);
+    // else this.array = this.albums;
+
+    this.value = value
   }
 
   onKey(event: any) {
@@ -52,9 +55,8 @@ export class AppComponent {
         this.albums = r.results;
         this.resultsCount = r.resultCount;
 
-        document.getElementById('later-display').style.display = 'unset';
-        document.getElementById('first-display').style.display = 'none';
-        document.getElementsByTagName('select')[0].selectedIndex = 0; //set default option as default
+        this.flag = true
+        // document.getElementsByTagName('select')[0].selectedIndex = 0; //set default option as default
       });
       localStorage.setItem('lastInput', this.inputVal);
     }

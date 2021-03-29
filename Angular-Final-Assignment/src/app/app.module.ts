@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 import { AppComponent } from './app.component';
+import { PipePipe } from './pipe.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    PipePipe,
    
   ],
   imports: [

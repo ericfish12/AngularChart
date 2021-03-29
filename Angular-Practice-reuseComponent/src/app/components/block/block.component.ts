@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit ,Input, Output, EventEmitter, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-block',
@@ -25,30 +25,46 @@ export class BlockComponent implements OnInit {
 
 
 ngDoCheck(){
-  console.log(1,this.selected)
+  this.state =""              //clear all four components boxShadow
+  if(this.selected == this.color)         //select the current clicked component 
+  this.state ="10px 5px 5px "+ this.selected       // set this component's boxShadow
 }
 
 
-  ngAfterViewChecked(){
-    console.log(2,this.selected)
-  }
+  // ngAfterViewChecked(){
+  //   console.log(2,this.selected)
+  // }
 
 
 ngAfterContentChecked(){
- //state is for boxShadow; 
-   this.state =""              //clear all four components boxShadow
-if(this.selected == this.color)         //select the current clicked component 
-this.state ="10px 5px 5px "+ this.selected       // set this component's boxShadow
-}
+//  //state is for boxShadow; 
+//    this.state =""              //clear all four components boxShadow
+// if(this.selected == this.color)         //select the current clicked component 
+// this.state ="10px 5px 5px "+ this.selected       // set this component's boxShadow
+ }
 
+//  ngOnChanges(changes: SimpleChanges) {
+//    console.log(changes)
+//    this.state =""              //clear all four components boxShadow
+// if(this.selected == this.color)         //select the current clicked component 
+// this.state ="10px 5px 5px "+ this.selected       // set this component's boxShadow
+
+
+
+
+  
+// }
 
 async onclick(co:string){
 
-  await this.currentColor.emit(co);
+await this.currentColor.emit(co);
 // this.ngDoCheck()
-  // this.state ="10px 5px 5px "+ this.selected
-// this.ngOnInit()
-// console.log(this.selected)
+//    this.state ="10px 5px 5px "+ this.selected
+//  this.ngOnInit()
+
+  console.log(this.selected)
+
+
 // document.getElementsByTagName('h1')[0].style.color = this.color;
 
 // this

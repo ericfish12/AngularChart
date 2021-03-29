@@ -1,0 +1,24 @@
+<p>login works!</p>
+
+
+
+
+<form [formGroup]="rForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input type="text" formControlName="name" name="name" class="form-control" />
+    <!-- <div
+      *ngIf="rForm.get('name')!.touched && rForm.get('name')!.invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="rForm.get('name')!.hasError('required')">Name is required!</div>
+      <div *ngIf="rForm.get('name')!.hasError('pattern')">Invalid name!</div>
+    </div> -->
+
+    <label for="password">PassWord:</label>
+    <input type="number" formControlName="password" name="password" class="form-control" />
+
+
+    <button type="submit" class="btn btn-success" [disabled]="rForm.invalid">
+        Submit
+      </button>
+    </form>

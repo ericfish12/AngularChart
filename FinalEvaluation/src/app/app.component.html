@@ -1,0 +1,22 @@
+<h1>  <button (click)="openDialog()">Add New Post </button>  </h1>
+
+
+<main class="content" >
+  <div class="card" *ngFor="let post of posts; let key = index " >
+   
+   
+    <h5>
+      <b>{{ post.title }} </b>
+    </h5>
+    <br />
+    <div id="collectionName">{{ post.body }}</div>
+    <div class = 'remark' > 
+       <button id = "button1" (click)="openDialog2(post)">Update</button>
+      <button id = "button2" (click)= "onDelete(post.id)">Delete</button>
+    </div>
+ 
+</div>
+  
+
+  
+</main>
