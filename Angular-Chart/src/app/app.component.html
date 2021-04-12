@@ -1,0 +1,55 @@
+<button pButton type="button" class="p-button-info"></button>
+<button pButton type="button" label="Primary"></button>
+<button pButton type="button" label="Secondary" class="p-button-secondary"></button>
+<button pButton type="button" label="Success" class="p-button-success"></button>
+<button pButton type="button" label="Info" class="p-button-info"></button>
+<button pButton type="button" label="Warning" class="p-button-warning"></button>
+<button pButton type="button" label="Help" class="p-button-help"></button>
+<button pButton type="button" label="Danger" class="p-button-danger"></button>
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<p-chart type="line" [data]="data" [options]="options"></p-chart>
+
+
+<div class = "container p-d-flex">
+  <div class = "items">
+<app-one-chart ></app-one-chart>
+<div>
+  <div class = "items">
+<app-two-chart></app-two-chart>
+</div>
+<div class = "items">
+<app-three-chart></app-three-chart>
+</div>
+<div class = "items">
+<app-four-chart></app-four-chart>
+</div>
+
+</div>
+
+<div class="p-d-inline">Displayed as inline.</div>
+<div class="p-d-flex">Displayed as a flexbox container.</div>
+<div class="p-d-block p-d-lg-inline">Inline for larger screens and block for others.</div>
+<div class="p-d-md-none">Visible on a Small Screen</div>
+<div class="p-d-none p-d-md-inline-flex">Hidden on a Small Screen</div>
+<div class="p-d-none p-print-block">Only visible when printed.</div>
+<div class="p-d-block p-print-none">Not available for printing.</div>
+
+
+<div class="p-d-flex ">
+  <div class="p-mr-2"><app-three-chart></app-three-chart></div>
+  <div class="p-mr-2"><app-four-chart></app-four-chart></div>
+
+</div>
+
+
+<div class="p-d-flex p-flex-column">
+  <div class="p-mb-2">Item 1</div>
+  <div class="p-mb-2">Item 2</div>
+  <div>Item 3</div>
+</div>
+
+<!-- <app-five-chart></app-five-chart> -->
