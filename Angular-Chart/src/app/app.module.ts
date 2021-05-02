@@ -1,20 +1,21 @@
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {CardModule} from 'primeng/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import{ButtonModule}from 'primeng/button';
 import {ChartModule} from 'primeng/chart';
-import { OneChartComponent } from './components/one-chart/one-chart.component';
-import { TwoChartComponent } from './components/two-chart/two-chart.component';
-import { ThreeChartComponent } from './components/three-chart/three-chart.component';
-import { FourChartComponent } from './components/four-chart/four-chart.component';
-
-import { SixChartComponent } from './components/six-chart/six-chart.component';
- 
- 
+import { ChartsModule } from './shared/charts.module';
+import {SidebarModule} from 'primeng/sidebar';
+import {TooltipModule} from 'primeng/tooltip';
+import {AccordionModule} from 'primeng/accordion';
+import {SplitterModule} from 'primeng/splitter';
+import {CalendarModule} from 'primeng/calendar';
+import {GMapModule} from 'primeng/gmap';
+import { PipePipe } from './pipe.pipe';
 
 // import { FusionChartsModule } from "angular-fusioncharts";
 
@@ -27,12 +28,7 @@ import { SixChartComponent } from './components/six-chart/six-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
-    OneChartComponent,
-    TwoChartComponent,
-    ThreeChartComponent,
-    FourChartComponent,
-
-    SixChartComponent
+    PipePipe
   ],
   imports: [
     BrowserModule,
@@ -40,7 +36,15 @@ import { SixChartComponent } from './components/six-chart/six-chart.component';
     ButtonModule,
     ChartModule,
     BrowserAnimationsModule,
- 
+    ChartsModule,
+    SidebarModule,
+    TooltipModule,
+    AccordionModule,
+    CardModule,
+    SplitterModule,
+    FormsModule,
+    CalendarModule,
+    GMapModule
   ],
   providers: [],
   bootstrap: [AppComponent]

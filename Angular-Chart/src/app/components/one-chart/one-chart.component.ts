@@ -23,11 +23,11 @@ export class OneChartComponent {
           datasets: [
               {
                   label: 'First Dataset',
-                  data: [65, 59, 80, 81, 56, 55, 40]
+                  data: [6675, 5964, 8740, 8741, 5666, 5665, 4660]
               },
               {
                   label: 'Second Dataset',
-                  data: [28, 48, 40, 19, 86, 27, 90]
+                  data: [2668, 0, 4660, 1669, 8666, 2667, 9044]
               }
           ]
       }

@@ -1,3 +1,4 @@
+import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,13 +6,16 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Angular-Chart';
-
+  inline:any;
+  value:any;
   data: any;
-    
+  display:boolean = false;
   options: any;
-  
+
+
+  overlays: any[];
   constructor() {
 
   
@@ -29,15 +33,38 @@ export class AppComponent {
           ]
       }
       
-      this.options = {
-          title: {
-              display: true,
-              text: 'My Title',
-              fontSize: 16
-          },
-          legend: {
-              position: 'bottom'
-          }
-      };
+    //   this.options = {
+    //       title: {
+    //           display: true,
+    //           text: 'My Title',
+    //           fontSize: 16
+    //       },
+    //       legend: {
+    //           position: 'bottom'
+    //       }
+    //   };
+
+    
+
+
+
+
   }
+
+
+  ngOnInit(): void {
+
+    this.options = {
+        center: {lat: 36.890257, lng: 30.707417},
+        zoom: 12
+    };
+
+
+
+
+
+}
+
+
+
 }

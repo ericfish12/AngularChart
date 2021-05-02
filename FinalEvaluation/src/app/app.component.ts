@@ -10,17 +10,20 @@ import { PostsStateService } from './service/posts-state.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  // providers:[DataService,PostsStateService]
 })
 export class AppComponent {
   title = 'FinalEvaluation';
   posts!: Post[];
   popup = false;
   constructor(
+    
     private retrive: PostsStateService,
     private dservice: DataService,
     private dialog: MatDialog
   ) {
     this.retrive.updateState$.subscribe((posts) => {
+      console.log("看到了",posts)
       this.posts = posts;
     });
   }

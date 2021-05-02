@@ -24,7 +24,7 @@ export class UpdateItemComponent implements OnInit {
     private dservice: DataService,
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<UpdateItemComponent>,
-    @Inject(MAT_DIALOG_DATA) data
+    @Inject(MAT_DIALOG_DATA) public data
   ) {
     this.description = data;
   }
@@ -46,6 +46,7 @@ export class UpdateItemComponent implements OnInit {
 
     this.dservice.updatePost(post, this.description.id).subscribe((post) => {
       this.dservice.getPosts().subscribe((posts) => {
+        console.log("看看",post)
         this.retrive.updateState(posts);
         this.dialogRef.close();
       });

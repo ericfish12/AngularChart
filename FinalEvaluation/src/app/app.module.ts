@@ -14,9 +14,10 @@ import { CreateItemComponent } from './components/create-item/create-item.compon
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateItemComponent } from './components/update-item/update-item.component';
+import { MydiDirective } from './mydi.directive';
 
 @NgModule({
-  declarations: [AppComponent, CreateItemComponent, UpdateItemComponent],
+  declarations: [AppComponent, CreateItemComponent, UpdateItemComponent, MydiDirective],
   imports: [
     BrowserModule,
     HttpClientModule,
